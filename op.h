@@ -6,7 +6,7 @@
 /*   By: cnathana <cnathana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/24 15:05:31 by cnathana          #+#    #+#             */
-/*   Updated: 2014/01/31 17:01:20 by cnathana         ###   ########.fr       */
+/*   Updated: 2014/01/31 18:14:09 by cnathana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ typedef struct		s_op
 typedef struct		s_proc
 {
 	t_header		header;
-	char			size_mem[8];
+	char			mem_size[8];
 	int				reg[REG_NUMBER];
 	char			carry;
 	char			pc;
