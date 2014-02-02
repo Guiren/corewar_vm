@@ -6,7 +6,7 @@
 /*   By: cnathana <cnathana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/24 15:05:31 by cnathana          #+#    #+#             */
-/*   Updated: 2014/02/02 13:29:16 by cnathana         ###   ########.fr       */
+/*   Updated: 2014/02/02 16:16:04 by cnathana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,6 @@ void	ft_fill_name(t_proc players[], char *buf, int no, int fd);
 void	ft_fill_comment(t_proc players[], char *buf, int no, int fd);
 void	ft_fill_memsize(t_proc players[], char *buf, int no, int fd);
 void	ft_fill_arena(t_proc players[], char *buf, int no, int fd);
+void	ft_init_players(t_proc players[], int argc, char *argv[], char aren[]);
 
 #endif

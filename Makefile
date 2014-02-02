@@ -6,13 +6,13 @@
 #    By: fgrivill <fgrivill@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/01/31 18:13:45 by fgrivill          #+#    #+#              #
-#    Updated: 2014/02/02 11:25:21 by cnathana         ###   ########.fr        #
+#    Updated: 2014/02/02 16:16:49 by cnathana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = corewar
 
-FILES = fill op vm_init
+FILES = fill op vm_init vm
 SRC = $(addsuffix .c, $(FILES))
 OBJ = $(SRC:.c=.o)
 CC = gcc
@@ -25,7 +25,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@make -C $(LIB)
 	@echo "Objects Files created."
-	@$(CC) $(CFLAGS) $(OBJ) -L$(LIB) -lft
+	@$(CC) -o $(NAME) $(OBJ) -L$(LIB) -lft
 	@echo $(NAME) "created."
 
 clean:
