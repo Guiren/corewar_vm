@@ -15,7 +15,7 @@ NAME = corewar
 FILES = fill op vm vm_init
 SRC = $(addsuffix .c, $(FILES))
 OBJ = $(SRC:.c=.o)
-CC = @gcc
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror $(HEAD)
 HEAD = -I./includes
 LIB = ./libft
