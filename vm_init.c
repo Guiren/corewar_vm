@@ -6,10 +6,11 @@
 /*   By: cnathana <cnathana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/31 12:39:06 by cnathana          #+#    #+#             */
-/*   Updated: 2014/01/31 18:08:15 by cnathana         ###   ########.fr       */
+/*   Updated: 2014/02/02 13:27:57 by cnathana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <fcntl.h>
@@ -25,13 +26,14 @@ int		ft_access(char *str)
 	return (fd);
 }
 
-void	ft_add_player(t_proc players[], int fd)
+void	ft_add_player(t_proc players[], int fd, char arena[])
 {
 	static int		no = 0;
 	int				n;
 	char			*buf;
-	unsigned int	champ_mem_size;
+	int				i;
 
+	i = 0;
 	buf = (char *) malloc(sizeof(char) * 4097);
 	n = read(fd, buf, 4);
 	buf[n] = 0;
@@ -40,9 +42,12 @@ void	ft_add_player(t_proc players[], int fd)
 	ft_fill_name(players, buf, (int)no, fd);
 	printf("%s\n", players[no].header.prog_name);
 	ft_fill_memsize(players, buf, (int)no, fd);
-	printf("%s\n", players[no].mem_size);
+	printf("%x\n", players[no].mem_size);
 	ft_fill_comment(players, buf, (int)no, fd);
 	printf("%s\n", players[no].header.comment);
+	players[no].arena = arena;
+	ft_fill_arena(players, buf, (int)no, fd);
+	++no;
 }
 
 void	ft_init_players(t_proc players[], int argc, char *argv[], char arena[])
@@ -55,8 +60,9 @@ void	ft_init_players(t_proc players[], int argc, char *argv[], char arena[])
 	{
 		if (argv[i][0] != '-')
 		{
+			printf("argc - i = %d\n", argc - i);
 			fd = ft_access(argv[i]);
-			ft_add_player(players, fd);
+			ft_add_player(players, fd, arena);
 			close(fd);
 		}
 		++i;

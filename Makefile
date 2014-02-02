@@ -6,13 +6,13 @@
 #    By: fgrivill <fgrivill@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/01/31 18:13:45 by fgrivill          #+#    #+#              #
-#    Updated: 2014/01/31 18:42:34 by fgrivill         ###   ########.fr        #
+#    Updated: 2014/02/02 11:25:21 by cnathana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = corewar
 
-FILES = fill op vm vm_init
+FILES = fill op vm_init
 SRC = $(addsuffix .c, $(FILES))
 OBJ = $(SRC:.c=.o)
 CC = gcc

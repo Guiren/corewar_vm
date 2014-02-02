@@ -6,7 +6,7 @@
 /*   By: cnathana <cnathana@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/24 15:05:31 by cnathana          #+#    #+#             */
-/*   Updated: 2014/01/31 18:14:09 by cnathana         ###   ########.fr       */
+/*   Updated: 2014/02/02 13:29:16 by cnathana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,18 @@ typedef struct		s_op
 typedef struct		s_proc
 {
 	t_header		header;
-	char			mem_size[8];
+	unsigned int	mem_size;
 	int				reg[REG_NUMBER];
 	char			carry;
 	char			pc;
+	char			*arena;
+	int				nb_players;
 	t_list			*proc_list;
 }					t_proc;
+
+void	ft_fill_name(t_proc players[], char *buf, int no, int fd);
+void	ft_fill_comment(t_proc players[], char *buf, int no, int fd);
+void	ft_fill_memsize(t_proc players[], char *buf, int no, int fd);
+void	ft_fill_arena(t_proc players[], char *buf, int no, int fd);
 
 #endif
